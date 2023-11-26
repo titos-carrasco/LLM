@@ -8,18 +8,16 @@ class Chat():
         self.system = system
         self.history = system
         self.llm = Llama(model_path=model, n_ctx=4096, verbose=False)
-        #self.llm('', stream=False)
 
     def _generate(self, prompt):
-        prompt = f'{self.history}\n{self.user} {prompt}\n{self.assistant}'
+        prompt = f'{self.history}\n{self.user} {prompt}\n{self.assistant} '
         response = ''
         streamer= self.llm(prompt, stream=True, stop=[self.user, self.assistant], max_tokens= 4096, temperature=0.8, top_k=40, top_p=0.9, seed=-1)
         for chunk in streamer:
             text = chunk['choices'][0]['text']
             print(text, end='', flush=True)
             response += text
-
-        self.history = prompt + response + '\n'
+        self.history = prompt + response
 
     def run(self):
         while(True):
@@ -41,8 +39,6 @@ class Chat():
                 self._generate(prompt)
             except KeyboardInterrupt:
                 pass
-            print(flush=True)
-
         print(flush=True)
 
 
@@ -56,5 +52,5 @@ Debes responder todo en español de la manera más correcta posible.
 Eres un asistente muy cordial y respondes todo de manera resumida y con información verdadera.
 """
 
-chat = Chat(path_models + model, '|USER', '|ASSISTANT|', system)
+chat = Chat(path_models + model, '|USER|', '|ASSISTANT|', system)
 chat.run()
