@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.40.0 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkTextBuffer" id="PromptBuffer">
+    <property name="text" translatable="yes">  F A R E W E L L
+
+                        1
+
+DESDE el fondo de ti, y arrodillado,
+un niño triste, como yo, nos mira.
+
+Por esa vida que arderá en sus venas
+tendrían que amarrarse nuestras vidas.
+
+Por esas manos, hijas de tus manos,
+tendrían que matar las manos mías.
+
+Por sus ojos abiertos en la tierra
+veré en los tuyos lágrimas un día.
+
+                        2
+
+YO NO lo quiero, Amada.
+
+Para que nada nos amarre
+que no nos una nada.
+
+Ni la palabra que aromó tu boca,
+ni lo que no dijeron las palabras.
+
+Ni la fiesta de amor que no tuvimos,
+ni tus sollozos junto a la ventana.
+
+                        3
+
+(AMO el amor de los marineros
+que besan y se van.
+
+Dejan una promesa.
+No vuelven nunca más.
+
+En cada puerto una mujer espera:
+los marineros besan y se van.
+
+Una noche se acuestan con la muerte
+en el lecho del mar.
+
+                        4
+
+AMO el amor que se reparte
+en besos, lecho y pan.
+
+Amor que puede ser eterno
+y puede ser fugaz.
+
+Amor que quiere libertarse
+para volver a amar.
+
+Amor divinizado que se acerca
+Amor divinizado que se va.)
+
+                        5
+
+YA NO se encantarán mis ojos en tus ojos,
+ya no se endulzará junto a ti mi dolor.
+
+Pero hacia donde vaya llevaré tu mirada
+y hacia donde camines llevarás mi dolor.
+
+Fui tuyo, fuiste mía. Qué más? Juntos hicimos
+un recodo en la ruta donde el amor pasó.
+
+Fui tuyo, fuiste mía. Tu serás del que te ame,
+del que corte en tu huerto lo que he sembrado yo.
+
+Yo me voy. Estoy triste: pero siempre estoy triste.
+Vengo desde tus brazos. No sé hacia dónde voy.
+
+...Desde tu corazón me dice adiós un niño.
+Y yo le digo adiós. </property>
+    <signal name="changed" handler="onPromptChanged" swapped="no"/>
+  </object>
+  <object class="GtkTextBuffer" id="PromptBufferTokenized"/>
+  <object class="GtkWindow" id="MainWindow">
+    <property name="width-request">640</property>
+    <property name="height-request">480</property>
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Evaluación de Prompt en LLM</property>
+    <property name="resizable">False</property>
+    <signal name="destroy" handler="onMainWindowDestroy" swapped="no"/>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="margin-left">10</property>
+        <property name="margin-right">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkComboBoxText" id="ModelsList">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="active">0</property>
+            <items>
+              <item translatable="yes">-- Selecione un Modelo ---</item>
+            </items>
+            <signal name="changed" handler="onModelSelected" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">Prompt</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="shadow-type">in</property>
+                    <child>
+                      <object class="GtkTextView" id="Prompt">
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="can-focus">True</property>
+                        <property name="wrap-mode">word</property>
+                        <property name="buffer">PromptBuffer</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">Prompt Tokenizado</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="shadow-type">in</property>
+                    <child>
+                      <object class="GtkTextView" id="TokenizedPrompt">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="editable">False</property>
+                        <property name="wrap-mode">word</property>
+                        <property name="cursor-visible">False</property>
+                        <property name="buffer">PromptBufferTokenized</property>
+                        <property name="accepts-tab">False</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="Calcular">
+            <property name="label" translatable="yes">Calcular Timmings</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="hexpand">True</property>
+            <signal name="clicked" handler="onCalculateClicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Timmings">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="valign">center</property>
+            <property name="label" translatable="yes">Número de Tokens Totales en el Prompt	   = %10d
+--
+Número de Tokens Evaluados del Prompt	   = %10d
+Tiempo de Carga	  			   = %10.2f ms
+Tiempo de Muestreo	  		   = %10.2f ms
+Tiempo de Evaluación de los Tokens	   = %10.2f ms (%8.2f tokens por segundo)
+Tiempo de Evaluación			   = %10.2f ms
+Tiempo Total				   = %10.2f ms</property>
+            <property name="track-visited-links">False</property>
+            <property name="xalign">0</property>
+            <attributes>
+              <attribute name="font-desc" value="Monospace 8"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
