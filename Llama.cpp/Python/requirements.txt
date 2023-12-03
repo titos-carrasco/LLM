@@ -1,4 +1,10 @@
 diskcache==5.6.3
-llama_cpp_python==0.2.19
+llama_cpp_python==0.2.20
 numpy==1.26.2
+pycairo==1.25.1
+PyGObject==3.46.0
+ruamel.yaml==0.18.5
+ruamel.yaml.clib==0.2.8
 typing_extensions==4.8.0
+vext==0.7.6
+vext.gi==0.7.4
