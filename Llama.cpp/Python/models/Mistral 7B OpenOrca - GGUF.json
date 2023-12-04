@@ -1,5 +1,5 @@
 {
-    "name": "Mistral 7B OpenOrca - GGUF",
+    "name": "TheBloke/Mistral-7B-OpenOrca-GGUF",
     "init": {
         "model_path": "/mnt/sda5/roberto/LLM Models/gguf/TheBloke/mistral-7b-openorca.Q4_K_M.gguf",
         "verbose": 0,
