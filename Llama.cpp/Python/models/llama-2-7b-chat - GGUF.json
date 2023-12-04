@@ -1,0 +1,23 @@
+{
+    "name": "TheBloke/Llama-2-7B-Chat-GGUF",
+    "init": {
+        "model_path": "/mnt/sda5/roberto/LLM Models/gguf/TheBloke/llama-2-7b-chat.Q4_K_M.gguf",
+        "verbose": 0,
+        "n_ctx": 4096,
+        "n_batch": 4096,
+        "n_threads": 4,
+        "n_gpu_layers" :0
+    },
+    "generate": {
+        "template": {
+            "system": "[INST] <<SYS>>\nEres un asistente de IA y respondes en español\n<</SYS>>[/INST]\n",
+            "user": "[INST] {prompt} [/INST]\n",
+            "assistant": "",
+            "response": "{response}\n"
+        },
+        "params": {
+            "stop": ["[INST]", "[/INST]"],
+            "max_tokens": 100
+        }
+    }
+}
